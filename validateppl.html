@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function verify_age() {
+             var ageForm = document.forms["ageform"]
+             ["Pname"].value;
+            if (ageForm >= 18) {
+                alert("Your age is valid")
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+    <form name="ageform" onsubmit="verify_age()">
+
+        Age: <input type="int" name="Pname">
+        <input type="submit" value="Submit">
+
+        <p id="returns"></p>
+    </form>
+</body>
+</html>
