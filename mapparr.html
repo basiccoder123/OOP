@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Ascending And Descending for Mapped Numbers</p>
+    <p id="value"></p>
+
+    <button onclick="ascending()">Ascending Order</button>
+
+    <button onclick="descending()">Descending Order</button>
+
+    <script>
+        var numbers = [5, 3, 8, 1, 2];
+
+        function ascending() {
+            var asc = numbers.map(x => x).sort((a, b) => a - b);
+            document.getElementById("value").innerHTML = "Ascending Order: " + asc;
+        }
+
+        function descending() {
+            var desc = numbers.map(x => x).sort((a, b) => b - a);
+            document.getElementById("value").innerHTML = "Descending Order: " + desc;
+        }
+    </script>
+</body>
+</html>

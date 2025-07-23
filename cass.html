@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Java Class Inheritance</h2>
+
+    <p id="detail"></p>
+    <p id="greeting"></p>
+
+    <script>
+        class Person {
+            constructor(name){
+                this.personname = name;
+            }
+
+            static hello() {
+                return "Hey";
+            }
+
+            present() {
+                return "My name is " + this.personname;
+            }
+        }
+
+        class Feats extends Person {
+            constructor(name, feat) {
+                super(name);
+                this.personfeat = feat;
+            }
+
+            show() {
+                return this.present() + " and I am " + this.personfeat;
+            }
+        }
+
+        let myPerson = new Feats("Tina", "grade 9");
+        document.getElementById("detail").innerHTML = myPerson.show();
+        document.getElementById("greeting").innerHTML = Person.hello();
+    </script>
+</body>
+</html>
