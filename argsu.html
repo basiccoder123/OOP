@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>Sum Of Arguments and Math Objects</p>
+    <p id="result"></p>
+
+    <script>
+
+        function sumAll() {
+            var sum = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+
+        document.getElementById("result").innerHTML = sumAll(87, 67, 23, 98, 54);
+
+        var val = Math.sin(45);
+        document.write("The value of sin 45 is: " + val + "<br>");
+
+        var val2 = Math.cos(45);
+        document.write("The value of cos 45 is: " + val2 + "<br>");
+
+        var val3 = Math.tan(45);
+        document.write("The value of tan 45 is: " + val3 + "<br>");
+    </script>
+</body>
+</html>
