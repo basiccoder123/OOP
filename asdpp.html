@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    ,<script>
+        var choice = prompt("Welcome to Area Calculator. Please choose a shape: \n1. Rectangle \n2. Circle \n3. Triangle");
+
+        if (choice == '1') {
+            var I = prompt('Enter the desired length')
+            var J = prompt('Enter the desired width')
+
+            var area = Number(I) * Number(J);
+            alert("The area is: " + area);
+        }
+
+        if (choice == 2){
+            var radius = prompt('Enter the radius of the circle');
+            var area = Math.PI * Math.pow(Number(radius), 2);
+            alert("The area is: " + area);
+        }
+
+        if (choice == 3) {
+            var base = prompt('Enter the base of the triangle');
+            var height = prompt('Enter the height of the triangle');
+
+            var area = 0.5 * Number(base) * Number(height);
+            alert("The area is: " + area);
+        }
+    </script>
+</body>
+</html>
