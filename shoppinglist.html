@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("shoppingimage.jpeg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        h3 {
+            color: blue;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>This Is A Shopping List Creator</h3>
+    <form id="shoppingForm">
+        <input id="shoppingthings" type="text">
+        <button>Add</button>
+    </form>
+    
+    <h3>Shopping List</h3>
+    
+    <ul id="whattobuy"></ul>
+    
+    <script>
+        var shoppingForm = document.getElementById("shoppingForm");
+        var shoppingthings = document.getElementById("shoppingthings");
+        var whattobuy = document.getElementById("whattobuy");
+
+        shoppingForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            createItem(shoppingthings.value);
+        });
+
+        function createItem(item) {
+            var items = `<li>${item}
+                    <button onclick="deleteElement(this)">Remove</button>
+                </li>`;
+
+
+            whattobuy.insertAdjacentHTML("beforeend", items);
+            shoppingthings.value = "";
+            shoppingthings.focus();
+        }
+
+        function deleteElement(ElementToDelete) {
+            ElementToDelete.parentElement.remove();
+        }
+
+    </script>
+</body>
+</html>
