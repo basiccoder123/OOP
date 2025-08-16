@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bredy Bakery - Order Bread Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style> 
+        body { font-family: Arial, sans-serif; background: #470303; margin: 0; padding: 0; }
+        header { background: #1a053c; color: #fff; padding: 20px 0; text-align: center; }
+        main { max-width: 600px; margin: 30px auto; color:#fff; background:  #1a053c; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.07);}
+        h2 { color: #bf1919; }
+        label { display: block; margin-top: 15px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+        button { background: #470303; color: #fff; border: none; padding: 12px 20px; border-radius: 4px; margin-top: 20px; cursor: pointer; font-size: 16px;}
+        button:hover { background: #a0522d; }
+        .success { color: green; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <style>
+            header img {
+                width: 250px; height: 200px; vertical-align: middle;
+                margin: auto;
+            }
+        </style>
+        <img id="header img" src="bred.png" alt="Bredy Bakery Logo">
+        <h1>Bredy Bakery</h1>
+        <p>Order your favorite bread online!</p>
+    </header>
+    <main>
+        <h2>Place Your Order</h2>
+        <form id="orderForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="breadType">Bread Type:</label>
+            <select id="breadType" name="breadType" required>
+                <option value="">-- Select Bread --</option>
+                <option value="Sugar Bread">Sugar Bread</option>
+                <option value="Butter Bread">Buttter Bread</option>
+                <option value="Tea Bread">Tea Bread</option>
+                <option value="Brown Bread">Brown Bread</option>
+                <option value="Chocolate Bread">Chocolate Bread</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="20" required>
+
+            <label for="extras">Extras (optional):</label>
+            <select id="extras" name="extras" multiple>
+                <option value="Butter">Butter</option>
+                <option value="Jam">Jam</option>
+                <option value="Cheese">Cheese</option>
+                <option value="Honey">Honey</option>
+                <option value="Chocolate Spread">Chocolate Spread</option>
+            </select>
+
+            <label for="pickup">Pickup or Delivery:</label>
+            <select id="pickup" name="pickup" required>
+                <option value="Pickup">Pickup</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+
+            <label for="address">Delivery Address (if applicable):</label>
+            <input type="text" id="address" name="address" placeholder="Enter your address" required>
+
+            <button type="submit">Order Now</button>
+            <div id="orderSuccess" class="success" style="display:none;">Thank you! Your order has been received.</div>
+        </form>
+
+        <form>
+            <h2>Contact Us</h2>
+            <label for="contactName">Your Name:</label>
+            <input type="text" id="contactName" name="contactName" required>
+
+            <label for="contactEmail">Your Email:</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('orderSuccess').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('orderSuccess').style.display = 'none';
+                document.getElementById('orderForm').reset();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

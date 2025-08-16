@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KFF Consult & Investing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: white; }
+        header { background: #0a0879; color: white; padding: 50px 0; text-align: center; }
+        nav { background: #600606; display: flex; justify-content: center; }
+        nav a {
+            color: white; text-decoration: none; padding: 14px 20px;
+            transition: background 0.2s;
+        }
+        nav a:hover, nav a.active { background: gray; }
+        .tab-content {  color: white; display: none; padding: 30px; background: #0a0879; max-width: 900px; margin: 30px auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0);}
+        .tab-content.active { display: block; }
+        footer { text-align: center; padding: 20px 0; background: #600606; color: white; margin-top: 40px;}
+    </style>
+</head>
+<body>
+    <header>
+
+        <style>
+            header img{
+                width: 250px; height: 250px; vertical-align: middle;
+                border-radius: 50%;
+                margin: auto;
+            }
+        </style>
+
+        <img id="header img" src="kffcc.png" alt="KFF Consult Logo">
+        <h1>KFF Consult & Investing</h1>
+        <p>Your trusted partner in consulting and investment solutions</p>
+    </header>
+    <nav>
+        <a href="#" class="active" onclick="showTab(event, 'home')">Home</a>
+        <a href="#" onclick="showTab(event, 'about')">About Us</a>
+        <a href="#" onclick="showTab(event, 'services')">Services</a>
+        <a href="#" onclick="showTab(event, 'investing')">Investing</a>
+        <a href="#" onclick="showTab(event, 'contact')">Contact</a>
+    </nav>
+
+    <div id="home" class="tab-content active">
+        <h2>Welcome to KFF Consult & Investing</h2>
+        <p>We provide expert consulting and investment services to help you achieve your financial goals. Explore our tabs to learn more about what we offer.</p>
+    </div>
+    <div id="about" class="tab-content">
+        <h2>About Us</h2>
+        <p>KFF Consult & Investing is dedicated to delivering professional advice and tailored investment strategies. Our experienced team is committed to your success.</p>
+    </div>
+    <div id="services" class="tab-content">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Business Consulting</li>
+            <li>Investment Advisory</li>
+            <li>Financial Planning</li>
+            <li>Market Analysis</li>
+            <li>Risk Management</li>
+        </ul>
+    </div>
+    <div id="investing" class="tab-content">
+        <h2>Investing</h2>
+        <p>We offer a range of investment opportunities and portfolio management services. Let us help you grow your wealth with smart, informed decisions.</p>
+    </div>
+    <div id="contact" class="tab-content">
+        <h2>Contact Us</h2>
+        <p>Email: fafosu@yahoo.com<br>
+             Phone: +233 56-111-1289<br>
+             Address: Abokobi-Boi, Accra, Ghana</p>
+        </p>
+        <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 KFF Consult & Investing. All rights reserved.
+    </footer>
+
+    <script>
+        function showTab(evt, tabId) {
+            evt.preventDefault();
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+            evt.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
