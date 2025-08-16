@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Date, Time, and Year</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(82, 59, 144);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .datetime {
+            background: #26688b;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-size: 1.5em;
+            text-align: center;
+            width: 350px;
+            margin: auto;
+        }
+
+        main {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <h2>Current Date, Time, and Year</h2>
+    <div class="datetime" id="datetime"></div>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
+            const day = days[now.getDay()];
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; 
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            const time = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById("datetime").textContent =
+                `${day}, ${month} ${year} - ${time}`;
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+    </script> 
+</body>
+</html>
