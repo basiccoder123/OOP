@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter App</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #2e080889;
+            margin: 0;
+        }
+        .counter-container {
+            background: #4b2a2aca;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .counter-value {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .counter-buttons button {
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #007bff;
+            color: #fff;
+        }
+        .counter-buttons button:hover {
+            background: #0056b3;
+        }
+        .counter-buttons button.reset {
+            background: #6c757d;
+        }
+        .counter-buttons button.reset:hover {
+            background: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <div class="counter-container">
+        <div class="counter-value" id="counter">0</div>
+        <div class="counter-buttons">
+            <button onclick="decrease()">-</button>
+            <button onclick="reset()" class="reset">Reset</button>
+            <button onclick="increase()">+</button>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        const counter = document.getElementById('counter');
+
+        function updateCounter() {
+            counter.textContent = count;
+        }
+
+        function increase() {
+            count++;
+            updateCounter();
+        }
+
+        function decrease() {
+            count--;
+            updateCounter();
+        }
+
+        function reset() {
+            count = 0;
+            updateCounter();
+        }
+    </script>
+</body>
+</html>
