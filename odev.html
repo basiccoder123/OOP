@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number App</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #number { font-size: 2em; margin: 20px; }
+        #toggleBtn { padding: 10px 20px; font-size: 1em; }
+    </style>
+</head>
+<body>
+    <div id="number">Click the button!</div>
+    <button id="toggleBtn">Start</button>
+
+    <script>
+        let clickCount = 0;
+        let isActive = false;
+        const numberDiv = document.getElementById('number');
+        const btn = document.getElementById('toggleBtn');
+
+        btn.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount % 2 === 1) {
+                // Odd click: stop
+                isActive = false;
+                btn.textContent = 'Start';
+            } else {
+                // Even click: start
+                isActive = true;
+                btn.textContent = 'Stop';
+                showRandomNumber();
+            }
+        });
+
+        function showRandomNumber() {
+            if (isActive) {
+                numberDiv.textContent = Math.floor(Math.random() * 100);
+                // Keep showing random numbers every second while active
+                setTimeout(showRandomNumber, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
